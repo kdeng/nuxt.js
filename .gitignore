@@ -13,7 +13,6 @@ npm-debug.log*
 .cache
 
 # Dist folder
-dist
 
 # Dist example generation
 examples/**/dist
