@@ -27,6 +27,23 @@ export default {
             }
           })
         })
+
+        const cartIndex = routes.findIndex(route => route.name === 'cart')
+        console.log('before', routes[cartIndex])
+        routes[cartIndex] = {
+          ...routes[cartIndex],
+          components: {
+            default: routes[cartIndex].component,
+            footer: resolve(__dirname, 'components/topFooter.vue'),
+            left: resolve(__dirname, 'components/childLeft.vue')
+          },
+          chunkNames: {
+            footer: 'components/topFooter',
+            left: 'components/childLeft'
+          }
+        }
+        console.log('after', routes[cartIndex])
+
     }
   }
 }

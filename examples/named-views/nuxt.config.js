@@ -25,6 +25,23 @@ export default {
           top: 'components/mainTop'
         }
       }
+
+      const cartIndex = routes.findIndex(route => route.name === 'cart')
+      routes[cartIndex] = {
+        ...routes[cartIndex],
+        components: {
+          default: routes[cartIndex].component,
+          top: resolve(__dirname, 'components/mainTop.vue'),
+          footer: resolve(__dirname, 'components/topFooter.vue'),
+          left: resolve(__dirname, 'components/childLeft.vue')
+        },
+        chunkNames: {
+          top: 'components/mainTop',
+          footer: 'components/topFooter',
+          left: 'components/childLeft'
+        }
+      }
+
     }
   }
 }
